@@ -4,7 +4,9 @@ import { DatabaseMemory } from './database-memory.js'
 const server = fastify()
 
 const database = new DatabaseMemory()
-
+server.get('/', (req, reply) => {
+  return reply.redirect('/videos')
+})
 server.post('/videos', (req, reply) => {
     const { title, description, duration } = req.body
 
