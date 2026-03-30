@@ -1,6 +1,17 @@
 import fastify from 'fastify'
 import { DatabaseMemory } from './database-memory.js'
+import fastify from 'fastify'
+import { DatabaseMemory } from './database-memory.js'
+import staticPlugin from '@fastify/static'
+import cors from '@fastify/cors'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
 
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const server = fastify()
+
+await server.register(cors)
+await server.register(staticPlugin, { root: __dirname, prefix: '/' })
 const server = fastify()
 
 const database = new DatabaseMemory()
