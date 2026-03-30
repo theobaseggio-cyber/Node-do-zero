@@ -39,4 +39,4 @@ npm install
 npm start
 ```
 
-O servidor vai iniciar em (http://[::1]:3333)
+O servidor vai iniciar em (http://localhost:3333/videos)
